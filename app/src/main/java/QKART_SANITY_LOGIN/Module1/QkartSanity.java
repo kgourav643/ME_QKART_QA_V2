@@ -26,6 +26,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class QkartSanity {
 
     public static String lastGeneratedUserName;
+    public static RemoteWebDriver driver;
 
 
     public static RemoteWebDriver createDriver() throws MalformedURLException {
@@ -123,6 +124,7 @@ public class QkartSanity {
         int passedTests = 0;
         Boolean status;
         // Maximize and Implicit Wait for things to initailize
+        driver = createDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
