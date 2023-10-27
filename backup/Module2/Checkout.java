@@ -1,5 +1,6 @@
 package QKART_SANITY_LOGIN.Module1;
 
+import net.bytebuddy.build.HashCodeAndEqualsPlugin.WithNonNullableFields;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -38,9 +39,7 @@ public class Checkout {
             addressBox.sendKeys(addresString);
             WebElement addBtn = driver.findElement(By.xpath("//button[text()='Add']"));
             addBtn.click();
-            WebDriverWait wait = new WebDriverWait(driver, 30);
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class='PrivateSwitchBase-input css-1m9pwf3']")));
-            //Thread.sleep(3000);
+            Thread.sleep(3000);
             return false;
         } catch (Exception e) {
             System.out.println("Exception occurred while entering address: " + e.getMessage());

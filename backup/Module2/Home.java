@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -31,7 +30,6 @@ public class Home {
             WebElement logout_button = driver.findElement(By.className("MuiButton-text"));
             logout_button.click();
 
-            // SLEEP_STMT_10: Wait for Logout to complete
             // Wait for Logout to Complete
             Thread.sleep(3000);
 
@@ -55,12 +53,7 @@ public class Home {
             driver.findElement(By.xpath("//*[@id='root']/div/div/div[1]/div[2]/div/input")).sendKeys(product);
             // searchInput.clear();
             // searchInput.sendKeys("yonex");
-            //Thread.sleep(5000);
-            WebDriverWait wait = new WebDriverWait(driver, 30);
-            ExpectedCondition resultFound = ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-yg30e6']"));
-            ExpectedCondition resultNotFound = ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//h4[text()=' No products found ']"));
-            wait.until(ExpectedConditions.or(resultNotFound, resultFound));
-            
+            Thread.sleep(5000);
             return true;
         } catch (Exception e) {
             System.out.println("Error while searching for a product: " + e.getMessage());
@@ -190,17 +183,11 @@ public class Home {
                     if(quantity > actualQuantity){
                         WebElement plusElement = parentElement.findElement(By.xpath(".//*[@data-testid='AddOutlinedIcon']"));
                         plusElement.click();
-                        // WebDriverWait wait = new WebDriverWait(driver, 30);
-                        // wait.until(ExpectedConditions.textToBePresentInElement(parentElement.findElement(By.xpath(".//div[@data-testid='item-qty")), actualQuantityString));
-                        // String.valueOf(actualQuantity + 1);
 
                     }
                     else if(quantity < actualQuantity){
                         WebElement minusElement = parentElement.findElement(By.xpath(".//*[@data-testid='RemoveOutlinedIcon']"));
                         minusElement.click();
-                        // WebDriverWait wait = new WebDriverWait(driver, 30);
-                        // wait.until(ExpectedConditions.textToBePresentInElement(parentElement.findElement(By.xpath(".//div[@data-testid='item-qty")), actualQuantityString));
-                        // String.valueOf(actualQuantity - 1);
                     }
                     else if(quantity == actualQuantity){
                         break;
@@ -210,8 +197,6 @@ public class Home {
             }
 
             }
-
-
 
 
             return false;
