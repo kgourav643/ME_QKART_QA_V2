@@ -661,7 +661,7 @@ public class QkartSanity {
         // Register a new user
         status = registration.registerUser("testUser", "abc@123", true);
         if (!status) {
-            logStatus("TestCase 5", "Test Case Failure. Happy Flow Test Failed", "FAIL");
+            logStatus("TestCase 11", "Test Case Failure. Happy Flow Test Failed", "FAIL");
             takeScreenshot(driver, "TestCaseFail", "TestCase05");
         }
 
